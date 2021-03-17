@@ -66,7 +66,7 @@ class GameLayout {
         child: Container(
           width: line.direction == LineDirection.horizontal ? blocSize : 5,
           height: line.direction == LineDirection.vertical ? blocSize : 5,
-          color: GameLayout.getPlayerColor(line.owner),
+          color: line.owner == Player.none ? Colors.grey.withAlpha(50) : GameLayout.getPlayerColor(line.owner),
         ),
       );
 

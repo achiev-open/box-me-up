@@ -16,7 +16,7 @@ class SettingsWidget extends StatelessWidget {
       7: '7x7',
     };
     Map<AITypes, String> playerChoices = {
-      AITypes.stupid: "Easy",
+      AITypes.stupid: "Easy AI",
       // AITypes.smart: "Hard",
       AITypes.none: '2 Players',
     };
@@ -39,7 +39,7 @@ class SettingsWidget extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(0, 25, 0, 15),
-          child: Text('Joueurs :', style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text('Players :', style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         SingleChoiceToggleButtons(
             choices: playerChoices.values.toList(),
