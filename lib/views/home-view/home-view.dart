@@ -6,6 +6,7 @@ import 'package:box_me_up/views/game-view/services/game.enums.dart';
 import 'package:box_me_up/views/home-view/components/play-button-widget.dart';
 import 'package:box_me_up/views/home-view/components/rules-widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
 import 'components/logo-widget.dart';
@@ -43,6 +44,12 @@ class HomeViewState extends State<HomeView> {
             ),
             SettingsWidget(view: this),
             PlayButtonWidget(GameViewArguments(gridSize, ai)),
+            TextButton(
+                onPressed: () {
+                  launch('https://www.buymeacoffee.com/achievgames');
+                },
+                child: Text('Buy us a coffee !', style: TextStyle(color: Color(AchievTheme.orange)))
+            )
           ]
       ),
     );
