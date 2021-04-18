@@ -24,7 +24,7 @@ class HomeViewState extends State<HomeView> {
 
   HomeViewState() {
     gridSize = 3;
-    ai = AITypes.stupid;
+    ai = AITypes.basic;
   }
 
   @override
