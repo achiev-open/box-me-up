@@ -31,7 +31,9 @@ class GameView extends StatelessWidget {
           children: [
             BackButtonWidget(),
             ScoreWidget(),
+            Container(height: 15),
             GameWidget(),
+            Container(height: 15),
             TurnIndicatorWidget(),
           ],
         ),

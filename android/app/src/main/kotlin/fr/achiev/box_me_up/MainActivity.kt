@@ -1,4 +1,4 @@
-package com.example.box_me_up
+package fr.achiev.box_me_up
 
 import io.flutter.embedding.android.FlutterActivity
 

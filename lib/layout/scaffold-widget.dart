@@ -8,9 +8,11 @@ class BoxMeUpLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: body
+        child: SingleChildScrollView(
+          child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: body
+          ),
         ),
       ),
     );

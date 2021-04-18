@@ -25,7 +25,7 @@ class SettingsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
+          padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
           child: Text('Grid size :', style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         SingleChoiceToggleButtons(
@@ -50,6 +50,7 @@ class SettingsWidget extends StatelessWidget {
               });
             }
         ),
+        Container(height: 25)
       ],
     );
   }
