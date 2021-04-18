@@ -17,7 +17,7 @@ class SettingsWidget extends StatelessWidget {
     };
     Map<AITypes, String> playerChoices = {
       AITypes.stupid: "Easy AI",
-      // AITypes.smart: "Hard",
+      AITypes.basic: "Medium AI",
       AITypes.none: '2 Players',
     };
 

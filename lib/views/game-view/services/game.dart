@@ -5,6 +5,7 @@ import 'package:box_me_up/views/game-view/services/ai-interface.dart';
 import 'package:box_me_up/views/game-view/services/basic-ai.dart';
 import 'package:box_me_up/views/game-view/services/game.enums.dart';
 import 'package:box_me_up/views/game-view/services/smart-ai.dart';
+import 'package:box_me_up/views/game-view/services/stupid-ai.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as developer;
@@ -62,10 +63,10 @@ class Game extends ChangeNotifier {
 
     switch (aiType) {
       case AITypes.stupid:
-        aiPlayer = new BasicAi(this);
+        aiPlayer = new StupidAi(this);
         break;
-      case AITypes.smart:
-        aiPlayer = new SmartAi(this);
+      case AITypes.basic:
+        aiPlayer = new BasicAi(this);
         break;
       default: break;
     }

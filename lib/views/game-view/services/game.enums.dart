@@ -7,7 +7,7 @@ enum Player {
 enum AITypes {
   none,
   stupid,
-  smart
+  basic
 }
 
 enum LineDirection {
