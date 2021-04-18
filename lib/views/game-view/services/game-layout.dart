@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 
 class GameLayout {
-  static Color getPlayerColor(Player player) {
+  static Color getPlayerColor(Player player, {bool highlight = false}) {
     Map<Player, Color> playerColors = {
       Player.none: Color(AchievTheme.white),
-      Player.first: Color(AchievTheme.blue),
-      Player.second: Color(AchievTheme.orange),
+      Player.first: highlight ? Colors.blueAccent : Color(AchievTheme.blue),
+      Player.second: highlight ? Colors.orange : Color(AchievTheme.orange),
     };
     return playerColors[player];
   }
@@ -58,6 +58,8 @@ class GameLayout {
     bool humanPlayerTurn = game.aiType == AITypes.none || game.currentPlayer == Player.first;
 
     game.lines.forEach((Line line) {
+      Color lineColor = line.owner == Player.none ? Colors.grey.withAlpha(50) : GameLayout.getPlayerColor(line.owner, highlight: line.id == game.lastLineId);
+
       Widget container = Container(
         width: line.direction == LineDirection.horizontal ? blocSize : 20,
         height: line.direction == LineDirection.vertical ? blocSize : 20,
@@ -66,7 +68,7 @@ class GameLayout {
         child: Container(
           width: line.direction == LineDirection.horizontal ? blocSize : 5,
           height: line.direction == LineDirection.vertical ? blocSize : 5,
-          color: line.owner == Player.none ? Colors.grey.withAlpha(50) : GameLayout.getPlayerColor(line.owner),
+          color: lineColor,
         ),
       );
 

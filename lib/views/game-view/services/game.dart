@@ -23,13 +23,14 @@ class Square {
 }
 
 class Line {
+  final int id;
   final int x;
   final int y;
   final LineDirection direction;
   final List<Square> relatedSquares;
   Player owner;
 
-  Line(this.x, this.y, this.direction, this.relatedSquares) {
+  Line(this.id, this.x, this.y, this.direction, this.relatedSquares) {
     owner = Player.none;
   }
 }
@@ -46,6 +47,7 @@ class Game extends ChangeNotifier {
   int secondPlayerScore;
   List<Square> grid;
   List<Line> lines;
+  int lastLineId = -1;
   Player winner;
 
   Game({ this.gridSize, this.aiType }) {
@@ -79,6 +81,7 @@ class Game extends ChangeNotifier {
   }
 
   initLinesFromGrid() {
+    int lineId = 0;
     lines = [];
     for (int i = 0; i < grid.length; i++) {
       Square square = grid[i];
@@ -88,27 +91,32 @@ class Game extends ChangeNotifier {
       if (square.y > 0) {
         topSides.add(grid[(square.y - 1) * gridSize + square.x]);
       }
-      lines.add(new Line(square.x, square.y, LineDirection.horizontal, topSides));
+      lines.add(new Line(lineId, square.x, square.y, LineDirection.horizontal, topSides));
+      lineId++;
 
       // Left line
       List<Square> leftSide = [square];
       if (square.x > 0) {
         leftSide.add(grid[square.y * gridSize + square.x - 1]);
       }
-      lines.add(new Line(square.x, square.y, LineDirection.vertical, leftSide));
+      lines.add(new Line(lineId, square.x, square.y, LineDirection.vertical, leftSide));
+      lineId++;
 
       // Right line
       if (square.x == gridSize - 1) {
-        lines.add(new Line(square.x + 1, square.y, LineDirection.vertical, [square]));
+        lines.add(new Line(lineId, square.x + 1, square.y, LineDirection.vertical, [square]));
+        lineId++;
       }
       // Bottom line
       if (square.y == gridSize - 1) {
-        lines.add(new Line(square.x, square.y + 1, LineDirection.horizontal, [square]));
+        lines.add(new Line(lineId, square.x, square.y + 1, LineDirection.horizontal, [square]));
+        lineId++;
       }
     }
   }
 
   selectLine(Line line) {
+    lastLineId = line.id;
     bool hasWonSquare = false;
     line.owner = currentPlayer;
     line.relatedSquares.forEach((Square square) {
