@@ -44,12 +44,12 @@ class HomeViewState extends State<HomeView> {
             ),
             SettingsWidget(view: this),
             PlayButtonWidget(GameViewArguments(gridSize, ai)),
-            TextButton(
-                onPressed: () {
-                  launch('https://www.buymeacoffee.com/achievgames');
-                },
-                child: Text('Buy us a coffee !', style: TextStyle(color: Color(AchievTheme.orange)))
-            )
+            // TextButton(
+            //     onPressed: () {
+            //       launch('https://www.buymeacoffee.com/achievgames');
+            //     },
+            //     child: Text('Buy us a coffee !', style: TextStyle(color: Color(AchievTheme.orange)))
+            // )
           ]
       ),
     );

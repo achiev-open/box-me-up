@@ -24,6 +24,7 @@ class BoxMeUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Box me up',
       routes: {
         HomeView.routeName: (context) => HomeView(),
